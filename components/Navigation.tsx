@@ -10,7 +10,7 @@ export default function Navigation() {
         <div className="nav__links">
           <Link href="/">Home</Link>
           <Link href="/blog">Blog</Link>
-          <Link href="/about">About</Link>
+          <Link href="/about">About Me</Link>
           <Link href="/architecture">Architecture</Link>
           <Link href="/status">Status</Link>
           <Link href="https://github.com/c-daly/LOGOS" target="_blank" rel="noopener">
