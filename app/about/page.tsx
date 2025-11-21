@@ -105,7 +105,7 @@ export default function AboutPage() {
           </div>
 
           <div className="card">
-            <h3 className="text-2xl font-bold mb-3">🛞 Exploratory Robotics Research</h3>
+            <h3 className="text-2xl font-bold mb-3">Exploratory Robotics Research</h3>
             <p className="text-lg mb-3">
               Hands-on experimentation with embedded systems, motor control, and sensor fusion. Built multiple robots from scratch to explore different control paradigms, from simple reactive behaviors to complex state machines.
             </p>
@@ -115,7 +115,7 @@ export default function AboutPage() {
           <div className="card">
             <h3 className="text-2xl font-bold mb-3">
               <Link href="https://github.com/c-daly/SCRMBL" className="text-accent hover:text-accent-2 transition-colors">
-                🧪 SCRMBL - StarCraft II RL Framework
+                SCRMBL - StarCraft II RL Framework
               </Link>
             </h3>
             <p className="text-lg mb-3">
@@ -127,7 +127,7 @@ export default function AboutPage() {
           <div className="card">
             <h3 className="text-2xl font-bold mb-3">
               <Link href="https://github.com/c-daly/MixedClusteringSurvey" className="text-accent hover:text-accent-2 transition-colors">
-                📈 Mixed Data Clustering Analysis
+                Mixed Data Clustering Analysis
               </Link>
             </h3>
             <p className="text-lg mb-3">
@@ -139,7 +139,7 @@ export default function AboutPage() {
           <div className="card">
             <h3 className="text-2xl font-bold mb-3">
               <Link href="https://github.com/c-daly/Notebooks" className="text-accent hover:text-accent-2 transition-colors">
-                🧠 NLP Embeddings Benchmark
+                NLP Embeddings Benchmark
               </Link>
             </h3>
             <p className="text-lg mb-3">
@@ -151,7 +151,7 @@ export default function AboutPage() {
           <div className="card">
             <h3 className="text-2xl font-bold mb-3">
               <Link href="https://github.com/c-daly/MinMaxPriorityQueue" className="text-accent hover:text-accent-2 transition-colors">
-                🖥️ MinMax Priority Queue
+                MinMax Priority Queue
               </Link>
             </h3>
             <p className="text-lg mb-3">
@@ -163,7 +163,7 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-16">
-        <h2 className="text-4xl font-bold mb-6 text-accent">💼 Professional Experience</h2>
+        <h2 className="text-4xl font-bold mb-6 text-accent">Professional Experience</h2>
         <div className="space-y-6">
           <div className="card">
             <h3 className="text-2xl font-bold mb-2">Software Engineer</h3>
@@ -195,7 +195,7 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-16">
-        <h2 className="text-4xl font-bold mb-6 text-accent">🎓 Education</h2>
+        <h2 className="text-4xl font-bold mb-6 text-accent">Education</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="card">
             <h3 className="text-2xl font-bold mb-2">Master of Science, Computer Science</h3>
@@ -212,19 +212,19 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-16">
-        <h2 className="text-4xl font-bold mb-6 text-accent">📫 Get in Touch</h2>
+        <h2 className="text-4xl font-bold mb-6 text-accent">Get in Touch</h2>
         <p className="text-xl mb-6 leading-relaxed">
           I'm actively seeking opportunities in AI/ML research, intelligent systems, and robotics. Whether you're working on cognitive architectures, autonomous agents, or building interpretable AI systems, I'd love to connect.
         </p>
         <div className="flex flex-wrap gap-6 text-lg">
           <Link href="https://linkedin.com/in/c-daly" className="px-6 py-3 rounded bg-accent text-black font-semibold hover:bg-accent-2 transition-colors">
-            🌐 LinkedIn
+            LinkedIn
           </Link>
           <Link href="https://github.com/c-daly" className="px-6 py-3 rounded bg-zinc-800 text-accent font-semibold hover:bg-zinc-700 transition-colors">
-            💻 GitHub
+            GitHub
           </Link>
           <Link href="/blog" className="px-6 py-3 rounded bg-zinc-800 text-accent-2 font-semibold hover:bg-zinc-700 transition-colors">
-            📝 Blog
+            Blog
           </Link>
         </div>
       </section>
