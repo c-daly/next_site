@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/next_site',
+  basePath: '',
   trailingSlash: true,
 };
 
