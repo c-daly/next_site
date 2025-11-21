@@ -13,7 +13,7 @@ export default function Navigation() {
           <Link href="/about">About</Link>
           <Link href="/architecture">Architecture</Link>
           <Link href="/status">Status</Link>
-          <Link href="https://github.com/fearsidhe/LOGOS" target="_blank" rel="noopener">
+          <Link href="https://github.com/c-daly/LOGOS" target="_blank" rel="noopener">
             GitHub
           </Link>
         </div>

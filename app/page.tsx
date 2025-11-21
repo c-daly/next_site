@@ -25,7 +25,7 @@ export default function Home() {
                 Explore Architecture
               </Link>
               <a 
-                href="https://github.com/fearsidhe/LOGOS" 
+                href="https://github.com/c-daly/LOGOS" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="button ghost"
