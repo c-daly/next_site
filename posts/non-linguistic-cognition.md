@@ -9,7 +9,8 @@ tags: ["Cognitive Architecture", "Graph Databases", "Neo4j", "Causal Reasoning"]
 ---
 
 
-*This is the second post in a series on building non-linguistic cognitive architectures. The first post examined AI history through the lens of search strategies—symbolic trees, neural weight spaces, and language model token sequences. This post introduces Project LOGOS, which explores graph-based knowledge representation as an alternative to language-based reasoning.*
+*This is the second post in a series on building non-linguistic cognitive architectures. The first post examined AI histor
+y through the lens of search strategies: symbolic tree search, neural weight spaces, and language model token sequences. This post introduces Project LOGOS, which explores graph-based knowledge representation as an alternative to language-based reasoning.*
 
 ---
 
@@ -181,7 +182,7 @@ Relationships:
 
 1. Explicit Relationships
 
-Graphs represent relationships directly as typed edges between nodes. When we write (action) -[:CAUSES]-> (state_change), we're creating an explicit, queryable link that says "this action causes this state change." The relationship exists as a first-class object in the database—we can traverse it, query for all actions that cause a particular state, or find all effects of a given action.
+Graphs represent relationships directly as typed edges between nodes. When we write (action) -[:CAUSES]-> (state_change), we're creating an explicit, queryable link that says "this action causes this state change." The relationship exists as a first-class object in the database; we can traverse it, query for all actions that cause a particular state, or find all effects of a given action.
 
 Consider these relationship types that naturally arise in robotic planning:
 - Causal: (GraspBlock) -[:CAUSES]-> (BlockGrasped) expresses that executing the grasp action brings about the grasped state
@@ -225,7 +226,8 @@ CREATE (p:Process {action: 'Grasp'})
 // Problem: Missing precondition stating the block must be clear and reachable
 ```
 
-The validator checks the proposed graph modification against all defined shapes and reports violations before the invalid data gets committed. This provides formal correctness guarantees—we can prove the knowledge graph satisfies our constraints.
+The validator checks the proposed graph modification against all defined shapes and reports violations before the invalid 
+data gets committed. This provides formal correctness guarantees, meaning we can prove the knowledge graph satisfies our constraints.
 
 Language models have no equivalent mechanism. They generate token sequences that sound plausible based on training data patterns, but there's no formal validation that the generated plan satisfies physical constraints, respects temporal ordering, or maintains causal coherence. A language model might confidently generate "grasp the block" without first establishing that the gripper is positioned correctly or that the block is reachable.
 

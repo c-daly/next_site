@@ -4,17 +4,20 @@ date: "2024-11-20"
 author: "Project LOGOS"
 series: "Non-Linguistic Cognitive Architectures"
 seriesOrder: 1
-description: "Examining the history of AI through the lens of search strategies—from symbolic tree search to neural weight optimization to language model token generation."
+description: "Examining the history of AI through the lens of search strategies, from symbolic tree search to neural weight
+ optimization to language model token generation."
 tags: ["AI History", "Search Algorithms", "Neural Networks", "Language Models"]
 ---
 
 # AI as Search: From Symbolic Trees to Neural Networks to Language Models
 
-*This is the first post in a series exploring non-linguistic cognitive architectures. In this post, we examine the history of AI through the lens of search strategies—from symbolic tree search to neural weight optimization to language model token generation. The second post introduces Project LOGOS, a graph-based cognitive architecture that reasons causally rather than linguistically.*
+*This is the first post in a series exploring non-linguistic cognitive architectures. In this post, we examine the history
+ of AI through the lens of search strategies, from symbolic tree search to neural weight optimization to language model token generation. The second post introduces Project LOGOS, a graph-based cognitive architecture that reasons causally rather than linguistically.*
 
 ---
 
-At its core, artificial intelligence is about searching state spaces—exploring possible configurations to find solutions, make decisions, or generate outputs. Whether a chess program evaluating millions of positions per second or a language model predicting the next word in a sentence, every AI system navigates through a space of possibilities seeking optimal outcomes.
+At its core, artificial intelligence is about searching state spaces, exploring possible configurations to find solutions, 
+make decisions, or generate outputs. Whether a chess program evaluating millions of positions per second or a language model predicting the next word in a sentence, every AI system navigates through a space of possibilities seeking optimal outcomes.
 
 This historical survey traces how different AI paradigms approached this fundamental challenge, from early symbolic AI's explicit tree searches through neural networks' weight space optimization to large language models' probability distributions over token sequences. Understanding AI's history as evolving search strategies illuminates both the power and limitations of current approaches and points toward why structured causal graphs might offer an alternative path for machine cognition.
 
@@ -51,7 +54,8 @@ Their key insight was that many problems share common search structures. Whether
 3. Select operators to reduce that difference
 4. Recursively apply until goal reached
 
-John McCarthy's **Lisp** (1958) provided the computational substrate for this vision. S-expressions naturally represented trees and graphs, enabling AI systems to manipulate symbolic structures as first-class objects. Logic programming languages like Prolog extended this, treating computation itself as theorem proving—a search through logical deductions.
+John McCarthy's **Lisp** (1958) provided the computational substrate for this vision. S-expressions naturally represented 
+trees and graphs, enabling AI systems to manipulate symbolic structures as first-class objects. Logic programming languages like Prolog extended this, treating computation itself as theorem proving, a search through logical deductions.
 
 ### Search Algorithms: From Brute Force to Heuristics
 
@@ -105,7 +109,7 @@ Despite elegant formalisms, symbolic AI struggled with:
 
 4. Scalability: Combinatorial explosion limited symbolic systems to toy domains. Real environments have too many objects, properties, and possibilities for exhaustive enumeration.
 
-These limitations motivated the shift toward neural networks—systems that could learn patterns from data rather than requiring hand-coded rules.
+These limitations motivated the shift toward neural networks, systems that could learn patterns from data rather than requiring hand-coded rules.
 
 ---
 
@@ -147,7 +151,8 @@ Key properties of this search:
 
 Convolutional Neural Networks (CNNs) demonstrated that architectural structure could encode domain knowledge as inductive bias. Convolutions implement **translation equivariance**: detecting a cat's ear at one image location uses the same weights as detecting it elsewhere. Pooling provides **local translation invariance**: small shifts don't change high-level representations.
 
-AlexNet's ImageNet victory (Krizhevsky, Sutskever, Hinton, 2012) marked neural networks' ascendance. With 60 million weights trained on 1.2 million labeled images, it achieved 15.3% top-5 error—dramatically better than previous methods. The key ingredients:
+AlexNet's ImageNet victory (Krizhevsky, Sutskever, Hinton, 2012) marked neural networks' ascendance. With 60 million weigh
+ts trained on 1.2 million labeled images, it achieved 15.3% top-5 error, dramatically better than previous methods. The key ingredients:
 
 - Depth: 8 layers enabling hierarchical feature learning
 - **ReLU activations**: $\sigma(x) = \max(0, x)$ avoiding vanishing gradients
@@ -184,7 +189,8 @@ Despite remarkable pattern recognition capabilities, neural networks faced persi
 
 1. Data hunger: Supervised learning requires massive labeled datasets. AlexNet needed 1.2 million labeled images; GPT-3 trained on 45TB of text.
 
-2. Brittleness to distribution shift: Models trained on one data distribution fail when test data differs. Adversarial examples—imperceptible perturbations fooling classifiers—revealed fragility.
+2. Brittleness to distribution shift: Models trained on one data distribution fail when test data differs. Adversarial exa
+mples, imperceptible perturbations fooling classifiers, revealed fragility.
 
 3. Lack of interpretability: A trained CNN has millions of weights encoding features across distributed representations. We can visualize learned filters but can't extract symbolic rules or causal explanations.
 
@@ -223,7 +229,8 @@ Autoregressive generation samples from this distribution sequentially:
 
 $$x_t \sim P(\cdot | x_1, \ldots, x_{t-1})$$
 
-This is a search through the space of possible token sequences. With vocabulary size $V$ and sequence length $T$, the space has $V^T$ possible sequences—astronomically large even for short texts.
+This is a search through the space of possible token sequences. With vocabulary size $V$ and sequence length $T$, the spac
+e has $V^T$ possible sequences, astronomically large even for short texts.
 
 Sampling strategies navigate this space:
 
@@ -248,7 +255,8 @@ The **scaling hypothesis** posits that model capabilities improve predictably wi
 
 $$\mathcal{L}(N) \propto N^{-\alpha}$$
 
-where $\mathcal{L}$ is loss, $N$ is model size, and $\alpha \approx 0.076$ for Transformers. Doubling model size yields consistent loss reduction—and often qualitative capability gains.
+where $\mathcal{L}$ is loss, $N$ is model size, and $\alpha \approx 0.076$ for Transformers. Doubling model size yields co
+nsistent loss reduction, and often qualitative capability gains.
 
 ### Emergent Capabilities
 
@@ -273,13 +281,15 @@ Token generation is local search in the space of possible continuations. At each
 3. Samples the next token according to this distribution
 4. Appends it to the context and repeats
 
-Crucially, the model searches linguistically—through token sequences, not through world models or causal graphs. Every concept, relationship, and constraint must be expressible as patterns in text.
+Crucially, the model searches linguistically through token sequences, not through world models or causal graphs. Every con
+cept, relationship, and constraint must be expressible as patterns in text.
 
 This has profound implications:
 
 - Strength: Language is a remarkably expressive medium. Almost any human knowledge can be articulated in text. Training on internet-scale corpora exposes models to vast conceptual diversity.
 
-- Weakness: Language is a lossy compression of thought. Spatial relationships, causal mechanisms, and logical constraints often require many tokens to specify precisely—or may be ambiguous/underspecified in natural language.
+- - Weakness: Language is a lossy compression of thought. Spatial relationships, causal mechanisms, and logical constraints 
+often require many tokens to specify precisely, or may be ambiguous/underspecified in natural language.
 
 ### The Fundamental Limitations
 
@@ -329,7 +339,7 @@ If we want AI systems that reason causally, validate plans formally, and explain
 - Constraints: Geometric, physical, and logical constraints must be checkable.
 - Structure: Knowledge organized as graphs enabling traversal and inference.
 
-Language is too indirect. Tokens can describe these properties, but the model doesn't compute with them—it computes with $P(\text{tokens})$.
+Language is too indirect. Tokens can describe these properties, but the model doesn't compute with them; it computes with $P(\text{tokens})$.
 
 This motivates **graph-based cognitive architectures**: systems that search through explicit graph structures representing causal relationships, spatial arrangements, and logical constraints. The next post introduces **Project LOGOS**, which takes this approach.
 
@@ -341,7 +351,8 @@ AI is search. But what you search shapes what you can find.
 
 Symbolic AI searched decision trees and proved theorems but struggled with perception and noise. Neural networks searched weight spaces and recognized patterns but couldn't explain their reasoning. Language models search token distributions and achieve linguistic fluency but can't guarantee causal correctness.
 
-Each paradigm's limitations stem from its search space. To build agents that reason causally about the world, we need spaces that explicitly represent causation, structure, and constraints—not as tokens to be sampled, but as graphs to be traversed.
+Each paradigm's limitations stem from its search space. To build agents that reason causally about the world, we need spac
+es that explicitly represent causation, structure, and constraints, not as tokens to be sampled, but as graphs to be traversed.
 
 The next post introduces Project LOGOS, a cognitive architecture that uses graph-based knowledge representation to enable autonomous agents to:
 
