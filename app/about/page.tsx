@@ -6,7 +6,7 @@ export default function AboutPage() {
       <h1 className="text-6xl font-bold mb-8">Christopher D. Daly</h1>
       
       <section className="mb-16">
-        <h2 className="text-4xl font-bold mb-6 text-accent">👋 About Me</h2>
+        <h2 className="text-4xl font-bold mb-6 text-accent">About Me</h2>
         <p className="text-xl leading-relaxed mb-6">
           I'm a software engineer with over 15 years of experience building scalable, robust web and cloud-native applications. I recently completed a Master's in Computer Science at Northeastern University, where I focused on intelligent agents, machine learning, and cognitive architectures. I design robots for fun, and I'm passionate about creating modular, explainable systems that address complex, real-world challenges.
         </p>
@@ -19,7 +19,7 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-16">
-        <h2 className="text-4xl font-bold mb-6 text-accent">🛠️ Technical Skills</h2>
+        <h2 className="text-4xl font-bold mb-6 text-accent">Technical Skills</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="card">
             <h3 className="text-xl font-bold mb-3 text-accent-2">Languages & Core</h3>
@@ -49,12 +49,12 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-16">
-        <h2 className="text-4xl font-bold mb-6 text-accent">🚀 Featured Projects</h2>
+        <h2 className="text-4xl font-bold mb-6 text-accent">Featured Projects</h2>
         
         <div className="space-y-8">
           <div className="card bg-gradient-to-br from-zinc-900/70 to-zinc-900/50 border-2 border-accent/30">
             <h3 className="text-3xl font-bold mb-4 text-accent">
-              🧠 Project LOGOS - Non-Linguistic Cognitive Architecture
+              Project LOGOS - Non-Linguistic Cognitive Architecture
             </h3>
             <p className="text-xl mb-4 leading-relaxed">
               A research project exploring how intelligent agents can reason, plan, and act without language models. LOGOS combines symbolic AI (STRIPS planning, A*), neural embeddings, and graph-based knowledge representation to create explainable, goal-directed behavior.
@@ -87,7 +87,7 @@ export default function AboutPage() {
           <div className="card">
             <h3 className="text-2xl font-bold mb-3">
               <Link href="https://github.com/Defiant-Duck/Sophia" className="text-accent hover:text-accent-2 transition-colors">
-                🤖 Sophia - Intelligent AI Agent (Legacy)
+                Sophia - Intelligent AI Agent (Legacy)
               </Link>
             </h3>
             <p className="text-lg mb-3">
@@ -97,7 +97,7 @@ export default function AboutPage() {
           </div>
 
           <div className="card">
-            <h3 className="text-2xl font-bold mb-3">📡 TurtleBot3 Autonomous Navigation</h3>
+            <h3 className="text-2xl font-bold mb-3">TurtleBot3 Autonomous Navigation</h3>
             <p className="text-lg mb-3">
               Built and programmed a TurtleBot3 robot with ROS2 for autonomous SLAM navigation. Custom hardware integration with Slamtec RPLidar and Cartographer for real-time mapping. All structural components 3D printed from custom Fusion 360 designs.
             </p>
