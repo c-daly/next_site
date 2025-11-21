@@ -4,22 +4,21 @@ date: "2024-11-20"
 author: "Project LOGOS"
 series: "Non-Linguistic Cognitive Architectures"
 seriesOrder: 1
-description: "Examining the history of AI through the lens of search strategies, from symbolic tree search to neural weight
- optimization to language model token generation."
+description: "Examining the history of AI through the lens of search strategies, from symbolic tree search to neural weightoptimization to language model token generation."
 tags: ["AI History", "Search Algorithms", "Neural Networks", "Language Models"]
 ---
 
 # AI as Search: From Symbolic Trees to Neural Networks to Language Models
 
 *This is the first post in a series exploring non-linguistic cognitive architectures. In this post, we examine the history
- of AI through the lens of search strategies, from symbolic tree search to neural weight optimization to language model token generation. The second post introduces Project LOGOS, a graph-based cognitive architecture that reasons causally rather than linguistically.*
+ of AI through the lens of search strategies, from symbolic tree search to neural weightoptimization to language model token generation. The second post introduces Project LOGOS, a graph-based cognitive architecture that reasons causally rather than linguistically.*
 
 ---
 
-At its core, artificial intelligence is about searching state spaces, exploring possible configurations to find solutions, 
+At its core, artificial intelligence is about searching state spaces, exploring possible configurations tofind solutions, 
 make decisions, or generate outputs. Whether a chess program evaluating millions of positions per second or a language model predicting the next word in a sentence, every AI system navigates through a space of possibilities seeking optimal outcomes.
 
-This historical survey traces how different AI paradigms approached this fundamental challenge, from early symbolic AI's explicit tree searches through neural networks' weight space optimization to large language models' probability distributions over token sequences. Understanding AI's history as evolving search strategies illuminates both the power and limitations of current approaches and points toward why structured causal graphs might offer an alternative path for machine cognition.
+This historical survey traces how different AI paradigms approached this fundamental challenge, from early symbolic AI's explicit tree searches through neural networks' weight space optimization to large language models' probability distributions over token sequences. Understanding AI's history as evolving search strategies illuminates both the power and limitations of current approaches and points toward why structured causal graphs mightoffer an alternative path for machine cognition.
 
 The key insight is this: the space you search determines what you can find. Symbolic logic can prove theorems but struggles with noisy perception. Neural networks excel at pattern recognition but can't explain their reasoning. Language models achieve remarkable fluency but can't guarantee causal correctness. Each paradigm's capabilities and limitations flow directly from the structure of its search space.
 
@@ -27,15 +26,15 @@ The key insight is this: the space you search determines what you can find. Symb
 
 ## The Central Insight: AI as Search
 
-When Deep Blue defeated Garry Kasparov in 1997, it evaluated 200 million chess positions per second, searching a vast tree of possible moves to find the best path to victory. When ChatGPT writes an essay, it searches through probability distributions over trillions of possible token sequences to generate coherent text. Both are intelligent systems. Both solve problems by searching. But they search fundamentally different spaces, and that difference determines what they can and cannot do.
+When Deep Blue defeated Garry Kasparov in 1997, it evaluated 200 million chess positions per second, searching a vast tree of possible moves tofind the best path to victory. When ChatGPT writes an essay, it searches through probability distributions over trillions of possible token sequences to generate coherent text. Both are intelligent systems. Both solve problems by searching. But they search fundamentally different spaces, and that difference determines what they can and cannot do.
 
 ### State Spaces and Search
 
-A state space is the set of all possible configurations of a system. In chess, each state is a board configuration; the state space contains approximately 10^43 legal positions. In robot navigation, each state might describe the robot's position, orientation, and the locations of obstacles. In image generation, each state could be a complete image with specific pixel values. The state space defines the universe of possibilities the AI must navigate.
+A state space is the setof all possible configurations of a system. In chess, each state is a board configuration; the state space contains approximately 10^43 legal positions. In robot navigation, each state might describe the robot's position, orientation, and the locations of obstacles. In image generation, each state could be a complete image with specific pixel values. The state space defines the universe of possibilities the AI must navigate.
 
-A search is the process of exploring this space, moving from one state to another according to transition rules, to find states that satisfy goal conditions or optimize some objective function. The chess program searches for board positions leading to checkmate. The navigation system searches for collision-free paths to the destination. The image generator searches for pixel configurations matching a text description.
+A search is the process of exploring this space, moving from one state to another according to transition rules, tofind states that satisfy goal conditions or optimize some objective function. The chess program searches for board positions leading to checkmate. The navigation system searches for collision-free paths to the destination. The image generator searches for pixel configurations matching a text description.
 
-We can formalize a search problem as a tuple ⟨S, s₀, A, T, G⟩ where S is the set of all states, s₀ ∈ S is the initial state, A is the set of actions, T: S × A → S is the state transition function, and G ⊆ S is the set of goal states. This mathematical notation provides precision, but the intuition is simple: you start somewhere (s₀), you have actions available (A), those actions change your state (T), and you're trying to reach a goal (G).
+We can formalize a search problem as a tuple ⟨S, s₀, A, T, G⟩ where S is the setof all states, s₀ ∈ S is the initial state, A is the setof actions, T: S × A → S is the state transition function, and G ⊆ S is the setof goal states. This mathematical notation provides precision, but the intuition is simple: you start somewhere (s₀), you have actions available (A), those actions change your state (T), and you're trying to reach a goal (G).
 
 Intelligence emerges from effective search strategies. The history of AI is the history of discovering new state spaces to search and developing better algorithms to explore them. Each paradigm shift in AI (symbolic to neural, neural to linguistic) fundamentally changed what we search and how we search it.
 
@@ -51,7 +50,7 @@ Their key insight was that many problems share common search structures. Whether
 
 1. Represent current state symbolically
 2. Identify difference between current and goal state
-3. Select operators to reduce that difference
+3. Selectoperators to reduce that difference
 4. Recursively apply until goal reached
 
 John McCarthy's **Lisp** (1958) provided the computational substrate for this vision. S-expressions naturally represented 
@@ -68,9 +67,9 @@ The **A* algorithm** (Hart, Nilsson, Raphael, 1968) remains one of AI's most ele
 More precisely, A* uses three values for each node n in the search tree:
 - g(n) = actual cost from start to node n (known exactly from the path taken)
 - h(n) = estimated cost from n to goal (the **heuristic**, a guess based on domain knowledge)
-- f(n) = g(n) + h(n) = estimated total cost of the path through n
+- f(n) = g(n) + h(n) = estimated total costof the path through n
 
-A* maintains a priority queue of nodes ordered by f(n), always expanding the node with the lowest estimated total cost. The remarkable property: if h(n) is **admissible** (meaning it never overestimates the true cost to reach the goal), A* is guaranteed to find the optimal path while exploring far fewer nodes than brute-force search. In GPS navigation with straight-line distance as the heuristic, A* might explore thousands of intersections instead of millions.
+A* maintains a priority queue of nodes ordered by f(n), always expanding the node with the lowest estimated total cost. The remarkable property: if h(n) is **admissible** (meaning it never overestimates the true cost to reach the goal), A* is guaranteed tofind the optimal path while exploring far fewer nodes than brute-force search. In GPS navigation with straight-line distance as the heuristic, A* might explore thousands of intersections instead of millions.
 
 Minimax and alpha-beta pruning brought game-theoretic rigor to adversarial search. In a two-player zero-sum game, minimax computes:
 
@@ -117,11 +116,11 @@ These limitations motivated the shift toward neural networks, systems that could
 
 ### The Paradigm Shift
 
-Neural networks reformulated AI as **optimization in weight space**. Instead of searching through symbolic states (board positions, logical predicates), neural networks search through the space of possible synaptic weights to find parameters that minimize prediction error.
+Neural networks reformulated AI as **optimization in weight space**. Instead of searching through symbolic states (board positions, logical predicates), neural networks search through the space of possible synaptic weights tofind parameters that minimize prediction error.
 
 This represents a profound change in what we search:
-- Symbolic AI: Search through state space to find action sequences reaching goals
-- Neural networks: Search through parameter space to find weights minimizing loss functions
+- Symbolic AI: Search through state space tofind action sequences reaching goals
+- Neural networks: Search through parameter space tofind weights minimizing loss functions
 
 A feedforward neural network with L layers computes:
 
@@ -149,10 +148,9 @@ Key properties of this search:
 
 ### Convolutional Networks and Vision
 
-Convolutional Neural Networks (CNNs) demonstrated that architectural structure could encode domain knowledge as inductive bias. Convolutions implement **translation equivariance**: detecting a cat's ear at one image location uses the same weights as detecting it elsewhere. Pooling provides **local translation invariance**: small shifts don't change high-level representations.
+Convolutional Neural Networks (CNNs) demonstrated that architectural structure could encode domain knowledge as inductive bias. Convolutions implement **translation equivariance**: detecting a cat's ear atone image location uses the same weights as detecting it elsewhere. Pooling provides **local translation invariance**: small shifts don't change high-level representations.
 
-AlexNet's ImageNet victory (Krizhevsky, Sutskever, Hinton, 2012) marked neural networks' ascendance. With 60 million weigh
-ts trained on 1.2 million labeled images, it achieved 15.3% top-5 error, dramatically better than previous methods. The key ingredients:
+AlexNet's ImageNet victory (Krizhevsky, Sutskever, Hinton, 2012) marked neural networks' ascendance. With 60 million weights trained on 1.2 million labeled images, it achieved 15.3% top-5 error, dramatically better than previous methods. The key ingredients:
 
 - Depth: 8 layers enabling hierarchical feature learning
 - **ReLU activations**: $\sigma(x) = \max(0, x)$ avoiding vanishing gradients
@@ -181,7 +179,7 @@ o_t &= \sigma(W_o [h_{t-1}, x_t] + b_o) \quad \text{(output gate)} \\
 h_t &= o_t \odot \tanh(C_t)
 \end{align*}$$
 
-These gates enable gradients to flow across hundreds of timesteps, enabling learning of long-range dependencies in language, music, and video.
+These gates enable gradients toflow across hundreds of timesteps, enabling learning of long-range dependencies in language, music, and video.
 
 ### The Limitations
 
@@ -189,8 +187,7 @@ Despite remarkable pattern recognition capabilities, neural networks faced persi
 
 1. Data hunger: Supervised learning requires massive labeled datasets. AlexNet needed 1.2 million labeled images; GPT-3 trained on 45TB of text.
 
-2. Brittleness to distribution shift: Models trained on one data distribution fail when test data differs. Adversarial exa
-mples, imperceptible perturbations fooling classifiers, revealed fragility.
+2. Brittleness to distribution shift: Models trained on one data distribution fail when test data differs. Adversarial examples, imperceptible perturbations fooling classifiers, revealed fragility.
 
 3. Lack of interpretability: A trained CNN has millions of weights encoding features across distributed representations. We can visualize learned filters but can't extract symbolic rules or causal explanations.
 
@@ -229,8 +226,7 @@ Autoregressive generation samples from this distribution sequentially:
 
 $$x_t \sim P(\cdot | x_1, \ldots, x_{t-1})$$
 
-This is a search through the space of possible token sequences. With vocabulary size $V$ and sequence length $T$, the spac
-e has $V^T$ possible sequences, astronomically large even for short texts.
+This is a search through the space of possible token sequences. With vocabulary size $V$ and sequence length $T$, the space has $V^T$ possible sequences, astronomically large even for short texts.
 
 Sampling strategies navigate this space:
 
@@ -240,7 +236,7 @@ Sampling strategies navigate this space:
 
 3. **Temperature sampling**: Sample from $P(x_t | \mathbf{x}_{<t})^{1/\tau}$. Higher temperature ($\tau > 1$) increases randomness; lower temperature makes distribution more peaked.
 
-4. **Nucleus sampling (top-p)**: Sample from the smallest set of tokens whose cumulative probability exceeds $p$. Dynamically adjusts the sampling pool based on context.
+4. **Nucleus sampling (top-p)**: Sample from the smallest setof tokens whose cumulative probability exceeds $p$. Dynamically adjusts the sampling pool based on context.
 
 ### The Scale Revolution
 
@@ -255,8 +251,7 @@ The **scaling hypothesis** posits that model capabilities improve predictably wi
 
 $$\mathcal{L}(N) \propto N^{-\alpha}$$
 
-where $\mathcal{L}$ is loss, $N$ is model size, and $\alpha \approx 0.076$ for Transformers. Doubling model size yields co
-nsistent loss reduction, and often qualitative capability gains.
+where $\mathcal{L}$ is loss, $N$ is model size, and $\alpha \approx 0.076$ for Transformers. Doubling model size yields consistent loss reduction, and often qualitative capability gains.
 
 ### Emergent Capabilities
 
@@ -268,7 +263,7 @@ Large language models exhibit capabilities absent in smaller models:
 
 3. Instruction following: Fine-tuning on human instructions (InstructGPT, ChatGPT) produces models that follow user intent, refuse harmful requests, and admit uncertainty.
 
-4. Code generation: Trained on GitHub and StackOverflow, models like Codex can translate natural language specifications to working code in multiple programming languages.
+4. Code generation: Trained on GitHub and StackOverflow, models like Codex can translate natural languagespecifications to working code in multiple programming languages.
 
 5. Multimodal understanding: CLIP and GPT-4 integrate vision and language, grounding linguistic representations in perceptual data.
 
@@ -281,8 +276,7 @@ Token generation is local search in the space of possible continuations. At each
 3. Samples the next token according to this distribution
 4. Appends it to the context and repeats
 
-Crucially, the model searches linguistically through token sequences, not through world models or causal graphs. Every con
-cept, relationship, and constraint must be expressible as patterns in text.
+Crucially, the model searches linguistically through token sequences, not through world models or causal graphs. Every concept, relationship, and constraint must be expressible as patterns in text.
 
 This has profound implications:
 
@@ -319,7 +313,7 @@ Each AI paradigm searches a different space:
 |--------------|------------------|---------------|-----------------|
 | Symbolic AI | Decision trees of symbolic states | Logical rigor, interpretability, formal guarantees | Brittleness, poor with noise, manual engineering |
 | Neural Networks | High-dimensional weight space | Pattern recognition, robustness to noise, learn from data | Data hunger, uninterpretable, distribution shift |
-| Language Models | Probability distributions over token sequences | Linguistic fluency, broad knowledge, few-shot learning | Hallucinations, no world model, correlation not causation |
+| Language Models | Probability distributions over token sequences | Linguistic fluency, broad knowledge, few-shot learning | Hallucinations, noworld model, correlation not causation |
 
 The space determines:
 
@@ -351,8 +345,7 @@ AI is search. But what you search shapes what you can find.
 
 Symbolic AI searched decision trees and proved theorems but struggled with perception and noise. Neural networks searched weight spaces and recognized patterns but couldn't explain their reasoning. Language models search token distributions and achieve linguistic fluency but can't guarantee causal correctness.
 
-Each paradigm's limitations stem from its search space. To build agents that reason causally about the world, we need spac
-es that explicitly represent causation, structure, and constraints, not as tokens to be sampled, but as graphs to be traversed.
+Each paradigm's limitations stem from its search space. To build agents that reason causally about the world, we need spaces that explicitly represent causation, structure, and constraints, not as tokens to be sampled, but as graphs to be traversed.
 
 The next post introduces Project LOGOS, a cognitive architecture that uses graph-based knowledge representation to enable autonomous agents to:
 

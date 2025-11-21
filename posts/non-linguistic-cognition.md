@@ -9,8 +9,7 @@ tags: ["Cognitive Architecture", "Graph Databases", "Neo4j", "Causal Reasoning"]
 ---
 
 
-*This is the second post in a series on building non-linguistic cognitive architectures. The first post examined AI histor
-y through the lens of search strategies: symbolic tree search, neural weight spaces, and language model token sequences. This post introduces Project LOGOS, which explores graph-based knowledge representation as an alternative to language-based reasoning.*
+*This is the second post in a series on building non-linguistic cognitive architectures. The first post examined AI history through the lens of search strategies: symbolic tree search, neural weight spaces, and language model token sequences. This post introduces Project LOGOS, which explores graph-based knowledge representation as an alternative to language-based reasoning.*
 
 ---
 
@@ -47,7 +46,7 @@ The issue runs deeper than training data or model size. It's inherent to what la
 
 $$P(x_{t+1} | x_1, \ldots, x_t) = \text{softmax}(W \cdot h_t)$$
 
-This mathematical notation describes the core operation: given all previous tokens ($x_1$ through $x_t$), predict the probability distribution over what token comes next ($x_{t+1}$). The model maximizes the probability of the next token given previous tokens; it learns correlations in text, patterns of which words tend to follow which other words.
+This mathematical notation describes the core operation: given all previous tokens ($x_1$ through $x_t$), predict the probability distribution over what token comes next ($x_{t+1}$). The model maximizes the probability of the next token given previous tokens; it learns correlations in text, patterns of which words tend tofollow which other words.
 
 But correlation is not causation, and linguistic plausibility is not physical validity. The model learns that "above" often follows "move gripper" in robot instruction manuals, not because it understands spatial relationships, but because this word sequence appears frequently in its training data.
 
@@ -63,7 +62,7 @@ The LLM has never performed **inverse kinematics** calculations, never checked c
 
 Human language evolved for communication, not computation. We compress rich 3D spatial understanding into 1D token sequences, losing:
 
-1. Geometric precision: "above the block" is ambiguous (how far above? What orientation?)
+1. Geometric precision: "above the block" is ambiguous (how far above? Whatorientation?)
 2. Causal structure: "then move" implies temporal ordering but doesn't encode causal dependencies
 3. Constraint satisfaction: "grasp the block" doesn't specify force limits, contact points, or stability conditions
 4. Validation criteria: "carefully" and "securely" are qualitative, not quantifiable
@@ -82,7 +81,7 @@ When you navigate around furniture to reach the kitchen, your brain constructs a
 
 Place cells activate when you're in specific locations ("kitchen doorway," "beside the couch"). Grid cells fire in regular hexagonal patterns as you move, creating a coordinate system for tracking position. Importantly, this neural activity represents space directly as geometric relationships, not as verbal descriptions. You don't internally narrate "walk three steps forward, turn 30 degrees right, proceed four steps." The navigation system operates in spatial coordinates (actual geometric representations of position and direction).
 
-We can describe this mathematically as graph search on a spatial representation $G = (V, E)$, where $V$ is a set of discrete locations in space and $E$ represents connections between locations where a path exists. Each edge has a weight representing distance or movement cost. Path planning then becomes finding the minimum-cost path through this graph:
+We can describe this mathematically as graph search on a spatial representation $G = (V, E)$, where $V$ is a setof discrete locations in space and $E$ represents connections between locations where a pathexists. Each edge has a weight representing distance or movement cost. Path planning then becomes finding the minimum-cost path through this graph:
 
 $$\pi^* = \arg\min_\pi \sum_{(u,v) \in \pi} \text{cost}(u,v)$$
 
@@ -90,7 +89,7 @@ The key insight: your brain searches this spatial graph structure, not a sequenc
 
 ### Motor Planning and Forward Models
 
-Consider catching a ball: you see it arcing through the air, predict where it will be, and coordinate your hand movement to intercept it. This entire process happens in approximately 400 milliseconds, far too fast for linguistic processing (try internally narrating instructions for catching and you'll drop the ball). 
+Consider catching a ball: you see it arcing through the air, predict where it will be, and coordinate your hand movement to intercept it. This entire process happens in approximately 400 milliseconds, far toofast for linguistic processing (try internally narrating instructions for catching and you'll drop the ball). 
 
 The cerebellum, a brain structure dedicated to motor control, implements what neuroscientists call a **forward model**: an internal simulation that predicts the consequences of actions. We can write this as:
 
@@ -151,9 +150,9 @@ A knowledge graph represents information as a network of interconnected concepts
 - Edges $E \subseteq V \times R \times V$ (the "relationships" connecting nodes, where each edge has a type from a set $R$)
 - Labels $L: V \cup E \to \text{attributes}$ that attach properties and metadata to both nodes and edges
 
-The power comes from making relationships explicit and typed. Rather than learning that "block" and "red" tend to appear near each other in text (a statistical correlation), we explicitly represent (RedBlock) -[:HAS_PROPERTY]-> (ColorRed). Rather than learning that "grasp" tends to follow "move to" in robot commands, we explicitly encode (MoveToBlock) -[:PRECEDES]-> (GraspBlock) with a temporal relationship.
+The power comes from making relationships explicit and typed. Rather than learning that "block" and "red" tend to appear near each other in text (a statistical correlation), we explicitly represent (RedBlock) -[:HAS_PROPERTY]-> (ColorRed). Rather than learning that "grasp" tends tofollow "move to" in robot commands, we explicitly encode (MoveToBlock) -[:PRECEDES]-> (GraspBlock) with a temporal relationship.
 
-Let's build up a concrete example for our pick-and-place robotics domain. We'll start with entities (the physical objects involved):
+Let's build up a concrete example for our pick-and-place robotics domain. We'll start withentities (the physical objects involved):
 
 ```
 Entities:
@@ -192,7 +191,7 @@ Consider these relationship types that naturally arise in robotic planning:
 
 In token sequences, these relationships are implicit, buried in statistical patterns learned from text. When an LLM generates "then grasp the block," the word "then" suggests temporal ordering, but there's no explicit data structure encoding the PRECEDES relationship. The model learns P("then" | context) from seeing "then" follow certain patterns in training data, without ever creating an explicit representation that "action A must precede action B."
 
-This distinction matters enormously for reliability. With explicit relationships, we can query "what are all the preconditions for this action?" and get a definitive answer by following edges in the graph. With implicit relationships learned statistically, we can only sample likely continuations and hope the statistical patterns align with logical necessity.
+This distinction matters enormously for reliability. Withexplicit relationships, we can query "what are all the preconditions for this action?" and get a definitive answer by following edges in the graph. With implicit relationships learned statistically, we can only sample likely continuations and hope the statistical patterns align with logical necessity.
 
 2. Validation and Consistency
 
@@ -206,7 +205,7 @@ Here's an example constraint in SHACL (the notation is Turtle/RDF, but the idea 
   sh:property [
     sh:path :hasPrecondition ;
     sh:minCount 1 ;
-    sh:message "Every process must have at least one precondition"
+    sh:message "Every process must have at leastone precondition"
   ] ;
   sh:property [
     sh:path :causes ;
@@ -215,7 +214,7 @@ Here's an example constraint in SHACL (the notation is Turtle/RDF, but the idea 
   ] .
 ```
 
-This defines a "shape" that all Process nodes must conform to. In plain English: every process (action) must have at least one precondition (a state that must be true before the action can execute), and every process must cause at least one state (specify what changes when the action executes). The "sh:class :State" constraint ensures that the target of a CAUSES edge is actually a State node, not some other type.
+This defines a "shape" that all Process nodes must conform to. In plain English: every process (action) must have at leastone precondition (a state that must be true before the action can execute), and every process must cause at leastone state (specify what changes when the action executes). The "sh:class :State" constraint ensures that the targetof a CAUSES edge is actually a State node, not some other type.
 
 Now, when we try to add or modify processes in our graph, we can validate against these constraints. If someone tries to create a robot action without specifying preconditions, the validator rejects it:
 
@@ -229,7 +228,7 @@ CREATE (p:Process {action: 'Grasp'})
 The validator checks the proposed graph modification against all defined shapes and reports violations before the invalid 
 data gets committed. This provides formal correctness guarantees, meaning we can prove the knowledge graph satisfies our constraints.
 
-Language models have no equivalent mechanism. They generate token sequences that sound plausible based on training data patterns, but there's no formal validation that the generated plan satisfies physical constraints, respects temporal ordering, or maintains causal coherence. A language model might confidently generate "grasp the block" without first establishing that the gripper is positioned correctly or that the block is reachable.
+Language models have no equivalent mechanism. They generate token sequences that sound plausible based on training data patterns, but there's noformal validation that the generated plan satisfies physical constraints, respects temporal ordering, or maintains causal coherence. A language model might confidently generate "grasp the block" without first establishing that the gripper is positioned correctly or that the block is reachable.
 
 3. Causal Reasoning
 
@@ -273,7 +272,7 @@ Answer (with proof):
 3. Precondition: Gripper must be holding block
 4. Cause: GraspBlock process  
 5. Temporal constraint: GraspBlock -[:PRECEDES]-> ReleaseBlock
-∴ GraspBlock must occur before MoveToTarget which precedes ReleaseBlock
+∴ GraspBlock mustoccur before MoveToTarget which precedes ReleaseBlock
 ```
 
 Each step references explicit graph structure. For LLMs, "explainability" means:
@@ -397,10 +396,9 @@ def plan(goal_state, current_state, hcg):
         if not causing_process:
             raise PlanningError(f"No process causes {state}")
         
-        # Add to plan
-        plan.insert(0, causing_process)
+        # Add to plan plan.insert(0, causing_process)
         
-        # Add preconditions to frontier
+        # Add preconditions tofrontier
         preconditions = hcg.query("""
             MATCH (p:Process {uuid: $proc_uuid})-[:PRECONDITION]->(pre:State)
             RETURN pre
@@ -411,10 +409,7 @@ def plan(goal_state, current_state, hcg):
     # Verify temporal ordering via PRECEDES relationships
     validate_temporal_order(plan, hcg)
     
-    return plan
-
-
-def validate_temporal_order(plan, hcg):
+    return plan def validate_temporal_order(plan, hcg):
     """Ensure plan respects PRECEDES constraints."""
     for i, proc in enumerate(plan[:-1]):
         next_proc = plan[i+1]
@@ -428,7 +423,7 @@ def validate_temporal_order(plan, hcg):
         
         if not must_precede:
             raise ValidationError(
-                f"Process {proc} must precede {next_proc} but no path exists"
+                f"Process {proc} must precede {next_proc} but no pathexists"
             )
 ```
 
@@ -450,7 +445,7 @@ logos:ProcessShape
     sh:datatype xsd:string ;
   ] ;
   
-  # Every process must have at least one precondition
+  # Every process must have at leastone precondition
   sh:property [
     sh:path logos:precondition ;
     sh:minCount 1 ;
@@ -458,7 +453,7 @@ logos:ProcessShape
     sh:message "Process requires precondition states"
   ] ;
   
-  # Every process must cause at least one state change
+  # Every process must cause at leastone state change
   sh:property [
     sh:path logos:causes ;
     sh:minCount 1 ;
@@ -503,7 +498,7 @@ else:
     commit_to_neo4j(proposed_graph)
 ```
 
-This provides formal correctness guarantees that LLM text generation cannot offer.
+This provides formal correctness guarantees that LLM text generation cannotoffer.
 
 ### Demonstration: Pick-and-Place Execution
 
@@ -590,7 +585,7 @@ Compare to an LLM-based planner where outputs must be parsed, validated post-hoc
 
 Use LLMs for:
 - Natural language interface (Apollo CLI)
-- Parsing high-level goals into formal representations
+- Parsing high-level goals intoformal representations
 - Generating human-readable explanations
 - Creativity and open-ended generation
 
@@ -602,7 +597,7 @@ Use graphs for:
 
 LOGOS philosophy: complementary, not competitive.
 
-**Apollo** (interface) uses LLMs, parses to formal goal state. Sophia (reasoning) searches HCG. **Talos** (embodiment) executes. **Hermes** (language) explains in natural language.
+**Apollo** (interface) uses LLMs, parses toformal goal state. Sophia (reasoning) searches HCG. **Talos** (embodiment) executes. **Hermes** (language) explains in natural language.
 
 ---
 
