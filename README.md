@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project LOGOS Website
+
+A Next.js-based technical blog and project site for Project LOGOS, featuring long-form technical posts with LaTeX math, code highlighting, and academic formatting.
+
+## Features
+
+- **MDX Blog** with full markdown support
+- **LaTeX Math Rendering** using KaTeX
+- **Syntax Highlighting** with rehype-pretty-code
+- **Series Navigation** for multi-part blog posts
+- **Table of Contents** with active section highlighting
+- **Dark Theme** inspired by the original LOGOS site aesthetic
+- **Auto-discovery** of posts from the `posts/` directory
+- **Frontmatter Support** for metadata (title, date, author, series, tags)
 
 ## Getting Started
 
-First, run the development server:
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Adding Blog Posts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Create a new `.md` or `.mdx` file in the `posts/` directory
+2. Add frontmatter at the top:
 
-## Learn More
+```yaml
+---
+title: "Your Post Title"
+date: "2024-11-21"
+author: "Your Name"
+series: "Optional Series Name"
+seriesOrder: 1
+description: "Brief description of the post"
+tags: ["tag1", "tag2"]
+---
+```
 
-To learn more about Next.js, take a look at the following resources:
+3. Write your content with full markdown, LaTeX math, and code blocks
+4. The post will automatically appear on the blog page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### LaTeX Math
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Use inline math with single `$`: `$E = mc^2$`
 
-## Deploy on Vercel
+Use display math with double `$$`:
+```
+$$
+\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
+$$
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Code Blocks
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Use fenced code blocks with language identifiers:
+
+````markdown
+```python
+def hello():
+    print("Hello, LOGOS!")
+```
+````
+
+## Project Structure
+
+```
+├── app/
+│   ├── page.tsx              # Home page
+│   ├── blog/
+│   │   ├── page.tsx          # Blog listing
+│   │   └── [slug]/page.tsx   # Individual post pages
+│   ├── architecture/         # Architecture overview
+│   ├── layout.tsx            # Root layout with navigation
+│   └── globals.css           # Global styles
+├── components/
+│   ├── Navigation.tsx        # Site navigation
+│   ├── TableOfContents.tsx   # TOC component
+│   └── SeriesNavigation.tsx  # Series navigation
+├── lib/
+│   ├── posts.ts              # Post discovery and metadata
+│   └── mdx.ts                # MDX compilation config
+└── posts/                    # Blog posts directory
+    ├── ai-as-search.md
+    └── non-linguistic-cognition.md
+```
+
+## Technologies
+
+- **Next.js 16** - React framework with App Router
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Utility-first styling
+- **MDX** - Markdown with JSX components
+- **KaTeX** - LaTeX math rendering
+- **Shiki** - Code syntax highlighting
+- **Gray Matter** - Frontmatter parsing
+
+## Deployment
+
+Build for production:
+
+```bash
+npm run build
+npm start
+```
+
+Deploy to Vercel, Netlify, or any Node.js hosting platform.
+
+## License
+
+Part of Project LOGOS
