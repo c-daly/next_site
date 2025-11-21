@@ -67,18 +67,18 @@ The **A* algorithm** (Hart, Nilsson, Raphael, 1968) remains one of AI's most ele
 More precisely, A* uses three values for each node n in the search tree:
 - g(n) = actual cost from start to node n (known exactly from the path taken)
 - h(n) = estimated cost from n to goal (the **heuristic**, a guess based on domain knowledge)
-- f(n) = g(n) + h(n) = estimated total costof the path through n
+- f(n) = g(n) + h(n) = estimated total cost of the path through n
 
 A* maintains a priority queue of nodes ordered by f(n), always expanding the node with the lowest estimated total cost. The remarkable property: if h(n) is **admissible** (meaning it never overestimates the true cost to reach the goal), A* is guaranteed to find the optimal path while exploring far fewer nodes than brute-force search. In GPS navigation with straight-line distance as the heuristic, A* might explore thousands of intersections instead of millions.
 
 Minimax and alpha-beta pruning brought game-theoretic rigor to adversarial search. In a two-player zero-sum game, minimax computes:
 
-$$V(n) = \begin{cases}
-\max_{a \in A(n)} \min_{n' \in \text{children}(n,a)} V(n') & \text{if MAX's turn} \\
-\min_{a \in A(n)} \max_{n' \in \text{children}(n,a)} V(n') & \text{if MIN's turn}
-\end{cases}$$
+$$V(n) = \\begin{cases}
+\\max_{a \\in A(n)} \\min_{n' \\in \\text{children}(n,a)} V(n') & \\text{if MAX's turn} \\\\
+\\min_{a \\in A(n)} \\max_{n' \\in \\text{children}(n,a)} V(n') & \\text{if MIN's turn}
+\\end{cases}$$
 
-Alpha-beta pruning reduces the branching factor from $b$ to approximately $\sqrt{b}$ by eliminating subtrees guaranteed to be worse than already-explored alternatives.
+Alpha-beta pruning reduces the branching factor from $b$ to approximately $\\sqrt{b}$ by eliminating subtrees guaranteed to be worse than already-explored alternatives.
 
 ### STRIPS and Classical Planning
 
@@ -124,15 +124,15 @@ This represents a profound change in what we search:
 
 A feedforward neural network with L layers computes:
 
-$$h^{(l)} = \sigma(W^{(l)} h^{(l-1)} + b^{(l)})$$
+$$h^{(l)} = \\sigma(W^{(l)} h^{(l-1)} + b^{(l)})$$
 
 where $h^{(l)}$ is the activation at layer $l$, $W^{(l)}$ and $b^{(l)}$ are weights and biases, and $\sigma$ is an activation function. The network's behavior is entirely determined by these weights.
 
-Training is the process of searching weight space to minimize a loss function $\mathcal{L}(\theta; D)$ measuring prediction error on dataset $D$. Gradient descent performs this search:
+Training is the process of searching weight space to minimize a loss function $\\mathcal{L}(\\theta; D)$ measuring prediction error on dataset $D$. Gradient descent performs this search:
 
-$$\theta_{t+1} = \theta_t - \eta \nabla_\theta \mathcal{L}(\theta_t; D)$$
+$$\\theta_{t+1} = \\theta_t - \\eta \\nabla_\\theta \\mathcal{L}(\\theta_t; D)$$
 
-The gradient $\nabla_\theta \mathcal{L}$ points in the direction of steepest increase in loss; moving opposite to this (down the gradient) reduces error. **Backpropagation** (Rumelhart, Hinton, Williams, 1986) efficiently computes these gradients by propagating errors backward through the network.
+The gradient $\\nabla_\\theta \\mathcal{L}$ points in the direction of steepest increase in loss; moving opposite to this (down the gradient) reduces error. **Backpropagation** (Rumelhart, Hinton, Williams, 1986) efficiently computes these gradients by propagating errors backward through the network.
 
 ### What Neural Networks Search
 
@@ -153,7 +153,7 @@ Convolutional Neural Networks (CNNs) demonstrated that architectural structure c
 AlexNet's ImageNet victory (Krizhevsky, Sutskever, Hinton, 2012) marked neural networks' ascendance. With 60 million weights trained on 1.2 million labeled images, it achieved 15.3% top-5 error, dramatically better than previous methods. The key ingredients:
 
 - Depth: 8 layers enabling hierarchical feature learning
-- **ReLU activations**: $\sigma(x) = \max(0, x)$ avoiding vanishing gradients
+- **ReLU activations**: $\\sigma(x) = \\max(0, x)$ avoiding vanishing gradients
 - **Dropout**: Random deactivation during training regularizing the model
 - **Data augmentation**: Synthetic variations increasing effective dataset size
 - **GPU acceleration**: Parallel computation making training feasible
