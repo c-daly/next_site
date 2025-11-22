@@ -3,6 +3,7 @@ import { getPostBySlug, getAllPosts, getPostsBySeries, generateTableOfContents }
 import { compileMDXContent } from '@/lib/mdx';
 import TableOfContents from '@/components/TableOfContents';
 import SeriesNavigation from '@/components/SeriesNavigation';
+import ReadingProgress from '@/components/ReadingProgress';
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -44,6 +45,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
   return (
     <div className="panel">
+      <ReadingProgress />
       <article className="max-w-6xl mx-auto">
         {/* Post Header */}
         <header className="mb-10 pb-8 border-b border-zinc-800">

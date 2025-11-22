@@ -29,6 +29,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: radial-gradient(circle at 20% 20%, rgba(99, 230, 190, 0.08), transparent 30%),
     radial-gradient(circle at 80% 10%, rgba(122, 168, 255, 0.08), transparent 25%), var(--bg);
@@ -262,11 +266,13 @@ h2 {
   padding: 32px;
   margin-bottom: 24px;
   box-shadow: var(--shadow);
-  transition: border-color 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .card:hover {
   border-color: rgba(99, 230, 190, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .card h3 {
@@ -290,12 +296,13 @@ h2 {
   padding: 32px;
   margin-bottom: 20px;
   box-shadow: var(--shadow);
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .post-card:hover {
   border-color: var(--accent);
   transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(99, 230, 190, 0.15);
 }
 
 .post-card h3 {
@@ -454,6 +461,11 @@ h2 {
   font-size: 0.9em;
   font-family: "SF Mono", Monaco, Consolas, monospace;
   color: var(--accent);
+  transition: background 0.2s ease;
+}
+
+.prose code:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .prose pre {
@@ -464,6 +476,11 @@ h2 {
   overflow-x: auto;
   margin: 1.5rem 0;
   line-height: 1.6;
+  transition: border-color 0.3s ease;
+}
+
+.prose pre:hover {
+  border-color: rgba(99, 230, 190, 0.3);
 }
 
 .prose pre code {
@@ -554,13 +571,14 @@ h2 {
   font-weight: 600;
   color: var(--text);
   cursor: help;
-  border-bottom: 2px dotted var(--accent);
-  transition: border-color 0.2s;
+  border-bottom: 1px dotted var(--accent);
+  transition: border-color 0.2s ease, color 0.2s ease;
   display: inline-block;
 }
 
 .glossary-term:hover {
-  border-bottom-color: transparent;
+  color: var(--accent);
+  border-bottom-color: var(--accent-2);
 }
 
 .glossary-tooltip-wrapper {
