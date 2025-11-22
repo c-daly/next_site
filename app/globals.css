@@ -402,6 +402,11 @@ h2 {
   padding-left: 0;
 }
 
+.prose :where(h1, h2, h3, h4, h5, h6) {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
 .prose h1 > .anchor,
 .prose h2 > .anchor,
 .prose h3 > .anchor,
