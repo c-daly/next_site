@@ -122,6 +122,8 @@ h1 {
   margin-bottom: 12px;
   line-height: 1.1;
   font-weight: 700;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .lede {
@@ -237,6 +239,8 @@ h2 {
   font-size: 32px;
   margin-bottom: 12px;
   font-weight: 700;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .panel__header p {
@@ -361,6 +365,8 @@ h2 {
   margin-top: 2rem;
   margin-bottom: 1rem;
   line-height: 1.2;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .prose h2 {
@@ -371,6 +377,8 @@ h2 {
   line-height: 1.3;
   scroll-margin-top: 5rem;
   color: var(--text);
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .prose h3 {
@@ -381,6 +389,8 @@ h2 {
   line-height: 1.4;
   scroll-margin-top: 5rem;
   color: var(--text);
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .prose h4 {
@@ -388,6 +398,19 @@ h2 {
   font-weight: 600;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.prose h1 > .anchor,
+.prose h2 > .anchor,
+.prose h3 > .anchor,
+.prose h4 > .anchor,
+.prose h5 > .anchor,
+.prose h6 > .anchor {
+  display: inline;
+  color: inherit;
+  text-decoration: none;
 }
 
 .prose p {
