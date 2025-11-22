@@ -130,11 +130,13 @@ $$h^{(l)} = \\sigma(W^{(l)} h^{(l-1)} + b^{(l)})$$
 
 where $h^{(l)}$ is the activation at layer $l$, $W^{(l)}$ and $b^{(l)}$ are weights and biases, and $\sigma$ is an activation function. The network's behavior is entirely determined by these weights.
 
-Training is the process of searching weight space to minimize a loss function $\\mathcal{L}(\\theta; D)$ measuring prediction error on dataset $D$. Gradient descent performs this search:
+Training is the process of searching weight space to minimize a loss function $\mathcal{L}(\theta; D)$ measuring prediction error on dataset $D$. Gradient descent performs this search:
 
-$$\\theta_{t+1} = \\theta_t - \\eta \\nabla_\\theta \\mathcal{L}(\\theta_t; D)$$
+$$
+\theta_{t+1} = \theta_t - \eta \nabla_\theta \mathcal{L}(\theta_t; D)
+$$
 
-The gradient $\\nabla_\\theta \\mathcal{L}$ points in the direction of steepest increase in loss; moving opposite to this (down the gradient) reduces error. **Backpropagation** (Rumelhart, Hinton, Williams, 1986) efficiently computes these gradients by propagating errors backward through the network.
+The gradient $\nabla_\theta \mathcal{L}$ points in the direction of steepest increase in loss; moving opposite to this (down the gradient) reduces error. **Backpropagation** (Rumelhart, Hinton, Williams, 1986) efficiently computes these gradients by propagating errors backward through the network.
 
 ### What Neural Networks Search
 
