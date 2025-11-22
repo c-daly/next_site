@@ -172,14 +172,16 @@ This allows the network to maintain context across sequences. However, **vanishi
 
 **Long Short-Term Memory** (**LSTM**) networks (Hochreiter & Schmidhuber, 1997) solved this with gating mechanisms controlling information flow:
 
-$$\begin{align*}
+$$
+\begin{aligned}
 f_t &= \sigma(W_f [h_{t-1}, x_t] + b_f) \quad \text{(forget gate)} \\
 i_t &= \sigma(W_i [h_{t-1}, x_t] + b_i) \quad \text{(input gate)} \\
 \tilde{C}_t &= \tanh(W_C [h_{t-1}, x_t] + b_C) \quad \text{(candidate cell state)} \\
 C_t &= f_t \odot C_{t-1} + i_t \odot \tilde{C}_t \quad \text{(update cell state)} \\
 o_t &= \sigma(W_o [h_{t-1}, x_t] + b_o) \quad \text{(output gate)} \\
 h_t &= o_t \odot \tanh(C_t)
-\end{align*}$$
+\end{aligned}
+$$
 
 These gates enable gradients to flow across hundreds of timesteps, enabling learning of long-range dependencies in language, music, and video.
 
