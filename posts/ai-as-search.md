@@ -257,21 +257,21 @@ The **scaling hypothesis** posits that model capabilities improve predictably wi
 
 $$\mathcal{L}(N) \propto N^{-\alpha}$$
 
-where $\mathcal{L}$ is loss, $N$ is model size, and $\alpha \approx 0.076$ for Transformers. Doubling model size yields consistent loss reduction, and often qualitative capability gains.
+where $\mathcal{L}$ is loss, $N$ is model size, and $\alpha \approx 0.076$ for Transformers. Doubling model size yields consistent loss reduction—*when* the data distribution, optimizer, and compute budget stay in the sweet spot assumed by the scaling derivations. In practice those assumptions fray quickly: data runs out, optimization becomes unstable, inference costs explode, and qualitative capabilities arrive unevenly. Chinchilla-style results showed that many “bigger is better” wins were actually “better data/compute balance is better.” Even today, benchmarks reveal regimes where adding parameters degrades robustness or amplifies failure modes like hallucinations. Scaling is a useful heuristic trend line, not a law of physics.
 
 ### Emergent Capabilities
 
-Large language models exhibit capabilities absent in smaller models:
+Large language models exhibit capabilities *reported* to be absent in smaller models, but the evidence is mixed:
 
-1. In-context learning: GPT-3 can perform tasks from natural language descriptions plus few examples, without parameter updates. The model learns the task dynamically during inference.
+1. In-context learning: GPT-3 can perform tasks from natural language descriptions plus few examples, without parameter updates. Yet meta-analyses show many “few-shot” successes rely on implicit memorization or carefully curated demonstrations, and performance can collapse with tiny prompt edits.
 
-2. Chain-of-thought reasoning: Prompting models to generate intermediate reasoning steps dramatically improves performance on complex tasks. Explicitly articulating reasoning in tokens helps navigate the search.
+2. Chain-of-thought reasoning: Prompting models to generate intermediate reasoning steps often boosts scores, but it also introduces extra avenues for hallucination and cherry-picked evaluation; gains are far from universal.
 
-3. Instruction following: Fine-tuning on human instructions (InstructGPT, ChatGPT) produces models that follow user intent, refuse harmful requests, and admit uncertainty.
+3. Instruction following: Fine-tuning on human instructions (InstructGPT, ChatGPT) produces models that follow user intent, refuse harmful requests, and admit uncertainty—until distribution shift, jailbreak prompts, or misaligned reward models surface contradictory behaviors.
 
-4. Code generation: Trained on GitHub and StackOverflow, models like Codex can translate natural language specifications to working code in multiple programming languages.
+4. Code generation: Trained on GitHub and StackOverflow, models like Codex can translate natural language specifications to working code, but reproducible studies keep finding brittle outputs, license leakage, and security flaws that scale *with* model size.
 
-5. Multimodal understanding: CLIP and GPT-4 integrate vision and language, grounding linguistic representations in perceptual data.
+5. Multimodal understanding: CLIP and GPT-4 integrate vision and language, yet their “grounding” remains statistical. Slight perturbations or adversarial captions can derail supposedly holistic reasoning.
 
 ### What Language Models Search
 
