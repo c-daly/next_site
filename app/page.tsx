@@ -12,10 +12,15 @@ export default function Home() {
           <div>
             <div className="eyebrow">OPEN-SOURCE COGNITIVE ARCHITECTURE</div>
             <h1>Project LOGOS</h1>
-            <p className="lede">
+            <p className="lede" style={{ marginBottom: '12px' }}>
+              <strong style={{ color: 'var(--accent)', fontSize: '20px' }}>Learning G* of Systems</strong> — 
               Building autonomous agents that reason with graphs, not words. 
               A cognitive architecture using Neo4j and Milvus for causal reasoning 
               and structured knowledge representation.
+            </p>
+            <p className="lede" style={{ fontSize: '17px', opacity: '0.9' }}>
+              LOGOS searches for optimal graph structures (G*) in the space of possible system configurations, 
+              treating intelligence as finding the right connections rather than the right words.
             </p>
             <div className="hero__cta">
               <Link href="/blog" className="button primary">
@@ -60,7 +65,43 @@ export default function Home() {
       {/* Why LOGOS Section */}
       <div className="panel alt">
         <div className="panel__header">
-          <h2>Why Non-Linguistic Cognition?</h2>
+          <h2>Why Graph Structures?</h2>
+          <p className="text-zinc-400">
+            LOGOS means <strong className="text-accent">Learning G* of Systems</strong> — finding optimal graph structures for knowledge representation.
+          </p>
+        </div>
+        <div className="card-grid">
+          <div className="card">
+            <h3>Graphs as First Principles</h3>
+            <p className="muted">
+              Just as A* searches for optimal paths through state space, LOGOS searches for optimal 
+              graph structures (G*) in the space of knowledge representations. Every concept, every 
+              causal relationship, every plan is fundamentally a graph problem.
+            </p>
+          </div>
+          <div className="card">
+            <h3>Structure Over Sequences</h3>
+            <p className="muted">
+              Language is linear. Knowledge is not. Graphs capture the true topology of causation, 
+              spatial relationships, and logical dependencies. LOGOS treats graph connectivity as 
+              the substrate of intelligence, not token sequences.
+            </p>
+          </div>
+          <div className="card">
+            <h3>Optimization Through Connection</h3>
+            <p className="muted">
+              Intelligence emerges from finding the right connections. Neo4j stores causal graphs, 
+              Milvus finds semantic neighbors in embedding space, and STRIPS plans traverse action 
+              graphs. It's graphs all the way down.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Why Non-Linguistic Section */}
+      <div className="panel">
+        <div className="panel__header">
+          <h2>Beyond Language Models</h2>
           <p className="text-zinc-400">
             Language models think in words. LOGOS thinks in structures.
           </p>
