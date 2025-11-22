@@ -156,6 +156,40 @@ export const glossary: Record<string, string> = {
   "Hermes": "LOGOS language component that generates natural language explanations of reasoning and decisions.",
   
   "Structure": "In the context of AI search spaces, the way information is organized - whether as symbolic predicates, continuous weights, tokens, or graph relationships.",
+  
+  "hallucination": "When language models confidently generate plausible-sounding but factually incorrect or impossible information, often due to lack of grounded world knowledge.",
+  
+  "backward chaining": "A goal-directed reasoning strategy that starts from the desired goal state and works backward to find the sequence of actions needed to achieve it.",
+  
+  "forward chaining": "A data-driven reasoning strategy that starts from the current state and applies rules to generate new facts until reaching a goal.",
+  
+  "Ontology": "A formal specification of the concepts, relationships, and rules within a domain, defining what entities exist and how they can relate to each other.",
+  
+  "CAUSES": "A relationship type in the Hybrid Causal Graph indicating that a Process produces a particular State as its effect.",
+  
+  "REQUIRES": "A relationship type in the Hybrid Causal Graph indicating that a Process needs a particular State to be true before it can execute (a precondition).",
+  
+  "Cypher": "The query language for Neo4j graph databases, using pattern matching to create, read, update, and delete graph data.",
+  
+  "world model": "An internal representation of the environment and its dynamics, allowing an agent to predict consequences of actions and reason about future states.",
+  
+  "embodied agents": "AI systems with physical or simulated bodies that interact with and perceive the real world through sensors and actuators.",
+  
+  "pick-and-place": "A fundamental robotics task involving grasping an object from one location and moving it to another, requiring coordination of perception, planning, and control.",
+  
+  "Imagination Loop": "LOGOS's process of simulating planned actions in a physics simulator or learned world model before executing them in reality, enabling safe failure and plan refinement.",
+  
+  "Causal World Model": "Component of LOGOS (CWM) that models physics and dynamics, either through simulation or learned neural models, to validate plans.",
+  
+  "JEPA": "Joint Embedding Predictive Architecture - A self-supervised learning approach for learning world models by predicting representations of future states.",
+  
+  "intent recognition": "The process of understanding what a user wants to achieve from natural language input, mapping utterances to formal goal representations.",
+  
+  "state tracking": "Maintaining an accurate representation of the current world state over time, updating beliefs as new information arrives.",
+  
+  "Sophia": "LOGOS's cognitive core component responsible for planning, reasoning, and managing the Hybrid Causal Graph.",
+  
+  "Abstract Logic": "Reasoning that operates purely on symbolic representations and formal rules without grounding in physical reality or sensory experience.",
 };
 
 export function getDefinition(term: string): string | undefined {
