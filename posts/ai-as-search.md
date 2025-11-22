@@ -73,12 +73,12 @@ A* maintains a priority queue of nodes ordered by f(n), always expanding the nod
 
 Minimax and alpha-beta pruning brought game-theoretic rigor to adversarial search. In a two-player zero-sum game, minimax computes:
 
-$$V(n) = \\begin{cases}
-\\max_{a \\in A(n)} \\min_{n' \\in \\text{children}(n,a)} V(n') & \\text{if MAX's turn} \\\\
-\\min_{a \\in A(n)} \\max_{n' \\in \\text{children}(n,a)} V(n') & \\text{if MIN's turn}
-\\end{cases}$$
+$$V(n) = \begin{cases}
+\max_{a \in A(n)} \min_{n' \in \text{children}(n,a)} V(n') & \text{if MAX's turn} \\
+\min_{a \in A(n)} \max_{n' \in \text{children}(n,a)} V(n') & \text{if MIN's turn}
+\end{cases}$$
 
-Alpha-beta pruning reduces the branching factor from $b$ to approximately $\\sqrt{b}$ by eliminating subtrees guaranteed to be worse than already-explored alternatives.
+Alpha-beta pruning reduces the branching factor from $b$ to approximately $\sqrt{b}$ by eliminating subtrees guaranteed to be worse than already-explored alternatives.
 
 ### STRIPS and Classical Planning
 
