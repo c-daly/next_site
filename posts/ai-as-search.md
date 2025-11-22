@@ -62,7 +62,7 @@ Early chess programs demonstrated both the promise and peril of exhaustive searc
 
 The breakthrough came with heuristic search algorithms that use domain knowledge to guide exploration toward promising areas of the state space. Rather than blindly trying every possibility, these algorithms incorporate estimates of how close each state is to the goal.
 
-The **A* algorithm** (Hart, Nilsson, Raphael, 1968) remains one of AI's most elegant results. Its key idea is beautifully simple: at each step, expand the node that appears most promising based on both how far you've come and how far you estimate you have left to go.
+The **A\* algorithm** (Hart, Nilsson, Raphael, 1968) remains one of AI's most elegant results. Its key idea is beautifully simple: at each step, expand the node that appears most promising based on both how far you've come and how far you estimate you have left to go.
 
 More precisely, A* uses three values for each node n in the search tree:
 - g(n) = actual cost from start to node n (known exactly from the path taken)
